@@ -1,17 +1,42 @@
-class ValidationError extends Error {
-    constructor(status, message) {
-        super(message);
-        this.status = status
-    }
+class Nodejs26Error extends Error {
+  constructor(message) {
+    super(message);
+    this.status = 400;
+  }
 }
 
-const createError = (status, message) => {
-    const e = new Error();
-    e.status = status;
-    e.message = message;
-    return e;
+class ValidationError extends Nodejs26Error {
+  constructor(message) {
+    super(message);
+    this.status = 400;
+  }
+}
+
+class WrongParametersError extends Nodejs26Error {
+  constructor(message) {
+    super(message);
+    this.status = 400;
+  }
+}
+
+class UpdateParametersError extends Nodejs26Error {
+  constructor(message) {
+    super(message);
+    this.status = 400;
+  }
+}
+
+class NotAuthorizedError extends Nodejs26Error {
+  constructor(message) {
+    super(message);
+    this.status = 401;
+  }
 }
 
 module.exports = {
-    ValidationError, createError
-}
+  Nodejs26Error,
+  ValidationError,
+  WrongParametersError,
+  UpdateParametersError,
+  NotAuthorizedError,
+};

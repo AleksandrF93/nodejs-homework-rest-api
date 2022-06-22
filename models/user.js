@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+// const gravatar = require('gravatar');
 
 const userSchema = new mongoose.Schema({
   password: {

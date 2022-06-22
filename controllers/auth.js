@@ -2,9 +2,14 @@ const { registration, login } = require('../services/auth.service');
 const { User } = require('../models/user');
 
 const registrationController = async (req, res) => {
-  const { email, password, subscription } = req.body;
-  await registration(email, password, subscription);
-  res.json({ status: "success" });
+  const { email, password, subscription, avatarURL } = req.body;
+  await registration(email, password, subscription, avatarURL);
+  res.json({
+    status: "success",
+    subscription,
+    avatarURL: avatarURL
+    
+  });
 };
 
 const loginController = async (req, res) => {

@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const { NotAuthorizedError } = require('../helpers/errors');
-const JWT_SECRET = "secret";
+require("dotenv").config();
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const authMiddleware = async (req, res, next) => {
   try {

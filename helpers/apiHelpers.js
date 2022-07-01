@@ -13,7 +13,19 @@ const errorHandler = (error, req, res, next) => {
   res.status(500).json({ message: error.message });
 };
 
+const createError = (status, message) => {
+  const e = new Error();
+  e.status = status;
+  e.message = message;
+  return e;
+};
+
+
+const authError = {status: 401, message: 'Bad credentials'};
+
 module.exports = {
   asyncWrapper,
   errorHandler,
+  createError,
+  authError
 };
